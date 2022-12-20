@@ -4,15 +4,14 @@ import {Request, Response} from "express";
 export class CategoryController {
 
     showC = async (req: Request, res: Response) => {
-        let category = await CategoryService.find()
+        let category = await CategoryService.findAllCategory()
         return res.status(200).json(category)
     }
     addC = async (req: Request, res: Response) => {
         let category = req.body
-        await CategoryService.save(req.body)
+        category = await CategoryService.creatCate(category)
         return res.status(200).json(category)
     }
-
 }
 
 export default new CategoryController()

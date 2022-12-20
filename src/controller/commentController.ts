@@ -4,8 +4,7 @@ import {Request, Response} from "express";
 export class CommentController {
 
     showComment = async (req: Request, res: Response) => {
-        let idBlog = req.body
-        let comment = await CommentService.findByBlogId(idBlog)
+        let comment = await CommentService.findByBlogId()
         return res.status(200).json(comment)
     }
     makeComment = async (req: Request, res: Response) => {
@@ -15,13 +14,12 @@ export class CommentController {
     }
     deleteComment = async (req: Request, res: Response) => {
         await CommentService.delete(req.params.id)
-        return res.status(200).json({message: 'delete ok'})
+        return res.status(201).json({message: 'delete ok'})
     }
     updateComment = async (req: Request, res: Response) => {
         await CommentService.edit(req.params.id, req.body)
-        return res.status(200).json({message: 'update ok'})
+        return res.status(201).json({message: 'update ok'})
     }
-
 }
 
 export default new CommentController()

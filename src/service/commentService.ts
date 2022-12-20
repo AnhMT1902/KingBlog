@@ -8,8 +8,8 @@ export class CommentService {
         this.commentRepository = AppDataSource.getRepository(Comment)
     }
 
-    findByBlogId = async (blogId) => {
-        return await this.commentRepository.findBy({blogId:blogId})
+    findByBlogId = async () => {
+        return await this.commentRepository.find()
     }
     saveComment = async (data) => {
         return await this.commentRepository.save(data)
