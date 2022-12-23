@@ -9,6 +9,8 @@ export class User {
     public readonly id: number;
     @Column({type: 'varchar'})
     public username: string;
+    @Column({type: 'text'})
+    public avatar: string;
     @Column({type: 'varchar'})
     public password: string;
     @OneToMany(() => Blog, (blog) => blog.user)

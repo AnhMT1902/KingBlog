@@ -1,7 +1,7 @@
 import {AppDataSource} from "../data-source";
 import {Comment} from "../model/comment";
 
-export class CommentService {
+class CommentService {
     private commentRepository: any
 
     constructor() {

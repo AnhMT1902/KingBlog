@@ -11,7 +11,6 @@ class UserController {
     constructor() {
         this.getAll = async (req, res) => {
             let user = await this.userService.findAll();
-            console.log(user);
             return res.status(200).json(user);
         };
         this.register = async (req, res) => {
@@ -21,9 +20,8 @@ class UserController {
         this.login = async (req, res) => {
             let user = req.body;
             let userFind = await this.userService.login(user.username);
-            console.log(userFind);
             if (!userFind) {
-                return res.status(200).json({
+                return res.status(201).json({
                     message: 'User is not exist'
                 });
             }
@@ -36,20 +34,23 @@ class UserController {
                 }
                 else {
                     let payload = {
-                        idUser: userFind._id,
+                        id: userFind.id,
                         username: userFind.username
                     };
                     let secret = 'king';
                     let token = jsonwebtoken_1.default.sign(payload, secret, {
                         expiresIn: 36000
                     });
-                    return res.status(200).json({ token: token });
+                    return res.status(200).json({
+                        token: token,
+                        user: payload
+                    });
                 }
             }
         };
         this.delete = async (req, res) => {
-            await this.userService.delete(req.params.id);
-            return res.status(201).json({ message: 'ok' });
+            let user = await this.userService.delete(req.params.id);
+            return res.status(200).json(user);
         };
         this.userService = new userService_1.UserService();
     }

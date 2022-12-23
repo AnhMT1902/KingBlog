@@ -9,6 +9,7 @@ class BlogController {
     }
 
     createBlog = async (req: Request, res: Response) => {
+        console.log(req.body)
         let blog = await BlogService.create(req.body)
         return res.status(200).json(blog);
     }
@@ -16,7 +17,6 @@ class BlogController {
     editBlogs = async (req: Request, res: Response) => {
         await BlogService.update(req.params.id, req.body)
         return res.status(200).json({message: 'ok'});
-
     }
 
     removeBlogs = async (req: Request, res: Response) => {

@@ -6,9 +6,11 @@ const userRouter_1 = require("./userRouter");
 const categoryRouter_1 = require("./categoryRouter");
 const commentRouter_1 = require("./commentRouter");
 const blogRouter_1 = require("./blogRouter");
+const likeRouter_1 = require("./likeRouter");
 exports.router = (0, express_1.Router)();
-exports.router.use('/admin', userRouter_1.userRouter);
-exports.router.use('', categoryRouter_1.categoryRouter);
-exports.router.use('', commentRouter_1.commentRouter);
-exports.router.use('', blogRouter_1.blogRouter);
+exports.router.use('/user', userRouter_1.userRouter);
+exports.router.use('/category', categoryRouter_1.categoryRouter);
+exports.router.use('/comment', commentRouter_1.commentRouter);
+exports.router.use('/like', likeRouter_1.likeRouter);
+exports.router.use('/blog', blogRouter_1.blogRouter);
 //# sourceMappingURL=router.js.map

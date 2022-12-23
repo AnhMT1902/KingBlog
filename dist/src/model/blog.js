@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], Blog.prototype, "title", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
+    (0, typeorm_1.Column)({ type: 'text' }),
     __metadata("design:type", String)
 ], Blog.prototype, "image", void 0);
 __decorate([
@@ -34,11 +34,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Blog.prototype, "status", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" }),
+    (0, typeorm_1.Column)({ type: 'text' }),
     __metadata("design:type", String)
 ], Blog.prototype, "createTime", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar', length: 255 }),
+    (0, typeorm_1.Column)({ type: 'text' }),
     __metadata("design:type", String)
 ], Blog.prototype, "description", void 0);
 __decorate([

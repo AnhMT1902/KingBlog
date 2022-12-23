@@ -3,9 +3,11 @@ import {userRouter} from "./userRouter";
 import {categoryRouter} from "./categoryRouter";
 import {commentRouter} from "./commentRouter";
 import {blogRouter} from "./blogRouter";
+import {likeRouter} from "./likeRouter";
 
 export const router = Router();
-router.use('/admin', userRouter);
-router.use('', categoryRouter)
-router.use('', commentRouter)
-router.use('', blogRouter)
+router.use('/user', userRouter);
+router.use('/category', categoryRouter)
+router.use('/comment', commentRouter)
+router.use('/like', likeRouter)
+router.use('/blog', blogRouter)

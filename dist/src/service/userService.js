@@ -10,7 +10,10 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 class UserService {
     constructor() {
         this.findAll = async () => {
-            return await this.userRepository.find();
+            let sql = `select *
+                    from user
+                    where not id = 1`;
+            return await this.userRepository.query(sql);
         };
         this.save = async (user) => {
             let query = `select *

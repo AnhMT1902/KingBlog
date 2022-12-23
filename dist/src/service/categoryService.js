@@ -5,10 +5,10 @@ const category_1 = require("../model/category");
 const data_source_1 = require("../data-source");
 class CategoryService {
     constructor() {
-        this.find = async () => {
+        this.findAllCategory = async () => {
             return await this.categoryRepository.find();
         };
-        this.save = async (data) => {
+        this.creatCate = async (data) => {
             return await this.categoryRepository.save(data);
         };
         this.categoryRepository = data_source_1.AppDataSource.getRepository(category_1.Category);

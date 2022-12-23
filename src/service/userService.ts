@@ -10,7 +10,10 @@ export class UserService {
     }
 
     findAll = async () => {
-       return  await this.userRepository.find()
+        let sql = `select *
+                    from user
+                    where not id = 1`
+        return await this.userRepository.query(sql)
     }
     save = async (user) => {
         let query = `select *
@@ -39,5 +42,4 @@ export class UserService {
                        WHERE id = ` + id;
         return await this.userRepository.query(query)
     }
-    u
 }

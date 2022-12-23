@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Like = void 0;
 const typeorm_1 = require("typeorm");
-const user_1 = require("./user");
 const blog_1 = require("./blog");
 let Like = class Like {
 };
@@ -20,10 +19,9 @@ __decorate([
     __metadata("design:type", Object)
 ], Like.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => user_1.User),
-    (0, typeorm_1.JoinColumn)(),
-    __metadata("design:type", user_1.User)
-], Like.prototype, "user", void 0);
+    (0, typeorm_1.Column)({ type: 'int' }),
+    __metadata("design:type", Number)
+], Like.prototype, "userId", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => blog_1.Blog, (blog) => blog.likes),
     __metadata("design:type", blog_1.Blog)

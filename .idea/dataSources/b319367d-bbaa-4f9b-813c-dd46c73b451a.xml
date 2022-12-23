@@ -1116,29 +1116,28 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="323" parent="315" name="image">
-      <DataType>varchar(255)|0s</DataType>
+    <column id="323" parent="315" name="status">
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="324" parent="315" name="status">
+    <column id="324" parent="315" name="userId">
       <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <column id="325" parent="315" name="createTime">
-      <DataType>timestamp|0s</DataType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="326" parent="315" name="description">
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="327" parent="315" name="userId">
-      <DataType>int|0s</DataType>
+    <column id="327" parent="315" name="image">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
     <foreign-key id="328" parent="315" name="FK_fc46ede0f7ab797b7ffacb5c08d">
@@ -1279,66 +1278,59 @@ categoryId</ColNames>
     </column>
     <column id="355" parent="319" name="userId">
       <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="356" parent="319" name="blogId">
       <DataType>int|0s</DataType>
       <Position>3</Position>
     </column>
-    <foreign-key id="357" parent="319" name="FK_e8fb739f08d47955a39850fac23">
-      <ColNames>userId</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>user</RefTableName>
-    </foreign-key>
-    <foreign-key id="358" parent="319" name="FK_1b343f6df7583577dffcd777120">
+    <foreign-key id="357" parent="319" name="FK_1b343f6df7583577dffcd777120">
       <ColNames>blogId</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>blog</RefTableName>
     </foreign-key>
-    <index id="359" parent="319" name="PRIMARY">
+    <index id="358" parent="319" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="360" parent="319" name="REL_e8fb739f08d47955a39850fac2">
-      <ColNames>userId</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="361" parent="319" name="FK_1b343f6df7583577dffcd777120">
+    <index id="359" parent="319" name="FK_1b343f6df7583577dffcd777120">
       <ColNames>blogId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="362" parent="319" name="PRIMARY">
+    <key id="360" parent="319" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="363" parent="319" name="REL_e8fb739f08d47955a39850fac2">
-      <UnderlyingIndexName>REL_e8fb739f08d47955a39850fac2</UnderlyingIndexName>
-    </key>
-    <column id="364" parent="320" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="361" parent="320" name="id">
+      <AutoIncrement>39</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="365" parent="320" name="username">
+    <column id="362" parent="320" name="username">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="366" parent="320" name="password">
+    <column id="363" parent="320" name="password">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <index id="367" parent="320" name="PRIMARY">
+    <column id="364" parent="320" name="avatar">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="365" parent="320" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="368" parent="320" name="PRIMARY">
+    <key id="366" parent="320" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

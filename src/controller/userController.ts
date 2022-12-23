@@ -12,7 +12,6 @@ export class UserController {
 
     getAll = async (req: Request, res: Response) => {
         let user = await this.userService.findAll()
-        console.log(user)
         return res.status(200).json(user)
     }
 
@@ -24,9 +23,8 @@ export class UserController {
     login = async (req: Request, res: Response) => {
         let user = req.body
         let userFind = await this.userService.login(user.username)
-        console.log(userFind)
         if (!userFind) {
-            return res.status(200).json({
+            return res.status(201).json({
                 message: 'User is not exist'
             })
         } else {
@@ -37,7 +35,7 @@ export class UserController {
                 })
             } else {
                 let payload = {
-                    idUser: userFind._id,
+                    id: userFind.id,
                     username: userFind.username
                 }
                 let secret = 'king'
@@ -45,15 +43,19 @@ export class UserController {
                     expiresIn: 36000
                 })
                 return res.status(200).json(
-                    {token: token}
+                    {
+                        token: token,
+                        user: payload
+                    }
                 )
             }
         }
     }
 
     delete = async (req: Request, res: Response) => {
-        await this.userService.delete(req.params.id)
-        return res.status(201).json({message: 'ok'})
+       let user =  await this.userService.delete(req.params.id)
+        return res.status(200).json(user)
     }
 }
+
 export default new UserController()
