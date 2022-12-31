@@ -2,6 +2,7 @@ import {UserService} from "../service/userService";
 import {Request, Response} from "express";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import {validate} from "class-validator";
 
 export class UserController {
     private userService: UserService;
@@ -12,6 +13,14 @@ export class UserController {
 
     getAll = async (req: Request, res: Response) => {
         let user = await this.userService.findAll()
+        validate(user).then(errors => {
+            // errors is an array of validation errors
+            if (errors.length > 0) {
+                console.log('validation failed. errors: ', errors);
+            } else {
+                console.log('validation succeed');
+            }
+        });
         return res.status(200).json(user)
     }
 
@@ -53,7 +62,7 @@ export class UserController {
     }
 
     delete = async (req: Request, res: Response) => {
-       let user =  await this.userService.delete(req.params.id)
+        let user = await this.userService.delete(req.params.id)
         return res.status(200).json(user)
     }
 }

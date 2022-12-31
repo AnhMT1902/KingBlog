@@ -7,10 +7,19 @@ exports.UserController = void 0;
 const userService_1 = require("../service/userService");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const class_validator_1 = require("class-validator");
 class UserController {
     constructor() {
         this.getAll = async (req, res) => {
             let user = await this.userService.findAll();
+            (0, class_validator_1.validate)(user).then(errors => {
+                if (errors.length > 0) {
+                    console.log('validation failed. errors: ', errors);
+                }
+                else {
+                    console.log('validation succeed');
+                }
+            });
             return res.status(200).json(user);
         };
         this.register = async (req, res) => {

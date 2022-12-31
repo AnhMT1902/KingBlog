@@ -13,7 +13,8 @@ exports.User = void 0;
 const typeorm_1 = require("typeorm");
 const blog_1 = require("./blog");
 const comment_1 = require("./comment");
-let User = class User {
+const userDto_1 = require("../userDto");
+let User = class User extends userDto_1.UserDto {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -23,14 +24,6 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'varchar' }),
     __metadata("design:type", String)
 ], User.prototype, "username", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: 'text' }),
-    __metadata("design:type", String)
-], User.prototype, "avatar", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: 'varchar' }),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => blog_1.Blog, (blog) => blog.user),
     __metadata("design:type", Array)

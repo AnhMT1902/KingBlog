@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
 
     password: "123456",
 
-    database: "king",
+    database: "find_job",
 
     synchronize: true,
 

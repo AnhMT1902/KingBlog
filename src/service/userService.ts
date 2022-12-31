@@ -11,8 +11,8 @@ export class UserService {
 
     findAll = async () => {
         let sql = `select *
-                    from user
-                    where not id = 1`
+                   from user
+                   where not id = 1`
         return await this.userRepository.query(sql)
     }
     save = async (user) => {
